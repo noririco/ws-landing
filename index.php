@@ -1,3 +1,5 @@
+<?php include('form_contact_us_proccess.php'); ?>
+
 <!DOCTYPE html>
 <html lang="en" dir="rtl">
 <head>
@@ -13,20 +15,28 @@
         <div id="content-top" class="grid-item">
             <ul class="list">
                 <li class="list-item">
-                    <img src="http://via.placeholder.com/21x21" alt="" class="list-item-image">
-                    <span class="text-color-black">רוצים להגדיל את המכירות עוד היום?</span>
+                    <div class="lineWrapper">
+                        <span class="orange-box"></span>
+                        <span class="text-color-black">רוצים להגדיל את המכירות עוד היום?</span>
+                    </div>
                 </li>
                 <li class="list-item">
-                    <img src="http://via.placeholder.com/21x21" alt="" class="list-item-image">
-                    <span class="text-color-black">להגיע למספר גדול של קונים ללא מאמץ?</span>
+                    <div class="lineWrapper">
+                        <span class="orange-box"></span>
+                        <span class="text-color-black">להגיע למספר גדול של קונים ללא מאמץ?</span>
+                    </div>
                 </li>
                 <li class="list-item">
-                    <img src="http://via.placeholder.com/21x21" alt="" class="list-item-image">
-                    <span class="text-color-black">אתר אינטרנט יוקרתי במתנה?</span>
+                    <div class="lineWrapper">
+                        <span class="orange-box"></span>
+                        <span class="text-color-black">אתר אינטרנט יוקרתי במתנה?</span>
+                    </div>
                 </li>
                 <li class="list-item">
-                    <img src="http://via.placeholder.com/21x21" alt="" class="list-item-image">
-                    <span class="text-color-black">מיני אתר לכל סוכן במתנה?</span>
+                    <div class="lineWrapper">
+                        <span class="orange-box"></span>
+                        <span class="text-color-black">מיני אתר לכל סוכן במתנה?</span>
+                    </div>
                 </li>
             </ul>
         </div>
@@ -74,12 +84,26 @@
                 <div class="form-title">
                     <span class="text-color-black">הרשם עכשיו!</span>
                 </div>
-                <input type="text" name="" id="" placeholder="שם מלא">
-                <input type="text" name="" id="" placeholder="טלפון">
-                <input type="text" name="" id="" placeholder="כתובת מייל">
-                <input type="text" name="" id="" placeholder="מספר רישיון">
-                <input type="text" name="" id="" placeholder="עיר מגורים">
-                <input type="submit" value="שלח" id="submitBtn">
+                <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post" id="contact">
+                    <div class="form-control">
+                        <input type="text" name="name" id="" value="<?= $name ?>" placeholder="שם מלא">
+                    </div>
+                    <div class="form-control">
+                        <input type="text" name="phone" id="" value="<?= $phone ?>" placeholder="טלפון">
+                    </div>
+                    <div class="form-control">
+                        <input type="text" name="email" id="" value="<?= $email ?>" placeholder="כתובת מייל">
+                    </div>                    
+                    <div class="form-control">
+                        <input type="text" name="licence" id="" value="<?= $licence ?>" placeholder="מספר רישיון">
+                    </div>
+                    <div class="form-control">
+                        <input type="text" name="city" id="" value="<?= $city ?>" placeholder="עיר מגורים">
+                    </div>
+                    <div class="form-control">
+                        <input type="submit" value="שלח" id="submitBtn" name="submit">
+                    </div>
+                </form>
             </div>
         </div>
     </div>
