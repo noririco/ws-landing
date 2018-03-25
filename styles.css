@@ -202,10 +202,14 @@ body{
     box-shadow: 4px 4px 16px 4px rgba(0, 0, 0, 0.8);
     border: none;
     border-radius: 10px;
+    -webkit-transition: box-shadow linear 0.3s;
+    transition: box-shadow linear 0.3s;
 }
 
 #contact-us input:focus{
-    outline-color: orangered;
+    outline: none;
+    border-color: #dd0000;
+    box-shadow: 0 0 60px #dd0000;
 }
 
 #contact-us .formWrapper input#submitBtn {
