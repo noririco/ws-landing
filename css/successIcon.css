@@ -1,0 +1,47 @@
+.succesIcon {
+    margin: 0 auto;
+    margin-top: 35px;
+    height: 60px;
+    width: 70px;
+    background-color: green; 
+    display: none;
+  }
+  .succesIcon svg {
+      width: inherit;
+      height: inherit;
+  }
+  .succesIcon polyline {
+    display: none;
+    position: absolute;
+    margin: 0 auto;
+    fill: none;
+    stroke: #f26d2c;
+    stroke-width: 7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 80;
+    /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+    animation: succesIconAnim 1s ease-in 1 running;
+    -webkit-animation: succesIconAnim 1s ease-in 1 running;
+  
+    *-webkit-animation-name: succesIconAnim;	
+    *-webkit-animation-duration: 1s;
+    *-webkit-animation-timing-function: ease-in;
+    *-webkit-animation-iteration-count: 1;
+    *-webkit-animation-play-state: running;
+  }
+  
+  @-webkit-keyframes succesIconAnim {
+    from {
+      stroke-dashoffset:80; 
+    }
+    to {
+      stroke-dashoffset:0; 
+    }
+  }
+
+  @media only screen and (min-width: 480px) {
+    .succesIcon {
+        margin-top: 1.7vw;
+    }
+  }

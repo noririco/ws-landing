@@ -156,6 +156,11 @@ $(document).ready(function(){
             //form valid
             console.log("form is valid");
             //Ajax animation desgin.
+            $('#submitBtn').css('display', 'none');
+            $('.sk-circle').css('display', 'block');
+            $('.form-title span').text('שולח טופס...');
+            // $('.succesIcon').show();   
+            // $('.succesIcon polyline').show().css('-webkit-animation-play-state', 'running').delay(1000);                     
 
             //Send Ajax.
             $.ajax({
@@ -174,8 +179,12 @@ $(document).ready(function(){
                     if(data == 'SUCCESS') {
                         //Ajax Off animation;
                         //Change text/
-                        $('#submitBtn').val('נשלח בהצלחה!');
-                        $('#submitBtn').css('background', 'green');
+                        $('.sk-circle').css('display', 'none');   
+                        $('.form-title span').text('נשלח בהצלחה!');                                         
+                        // $('#submitBtn').val('נשלח בהצלחה!');
+                        // $('#submitBtn').css('background', 'green');
+                        $('.succesIcon').show();
+                        $('.succesIcon polyline').show().css('-webkit-animation-play-state', 'running').delay(1000);
                     }
                 },
                 

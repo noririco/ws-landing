@@ -1,11 +1,6 @@
 <?php 
 include 'form_contact_us_proccess.php'; 
-
-$date_a = new DateTime();
-$date_b = new DateTime('2018-04-07 21:00:00');
-
-$interval = date_diff($date_a,$date_b);
-
+include 'title_time_shower.php';
 ?>
 
 <!DOCTYPE html>
@@ -16,6 +11,8 @@ $interval = date_diff($date_a,$date_b);
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>We Share - <?= $interval->format('%d:%H:%i:%s'); ?> </title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Assistant">
+    <link rel="stylesheet" type="text/css" href="css/spinner-circle.css">
+    <link rel="stylesheet" type="text/css" href="css/successIcon.css">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 <body>
@@ -117,7 +114,27 @@ $interval = date_diff($date_a,$date_b);
                     </div>
                     <div class="form-control">
                         <input type="submit" value="שלח" id="submitBtn" name="submit">
+                        <div class="sk-circle">
+                            <div class="sk-circle1 sk-child"></div>
+                            <div class="sk-circle2 sk-child"></div>
+                            <div class="sk-circle3 sk-child"></div>
+                            <div class="sk-circle4 sk-child"></div>
+                            <div class="sk-circle5 sk-child"></div>
+                            <div class="sk-circle6 sk-child"></div>
+                            <div class="sk-circle7 sk-child"></div>
+                            <div class="sk-circle8 sk-child"></div>
+                            <div class="sk-circle9 sk-child"></div>
+                            <div class="sk-circle10 sk-child"></div>
+                            <div class="sk-circle11 sk-child"></div>
+                            <div class="sk-circle12 sk-child"></div>
+                        </div>
+                            <div class="succesIcon">  
+                                <svg>
+                                    <polyline points="10,30 30,50 60,10"/>
+                                </svg>
+                            </div>
                     </div>
+
                 </form>
             </div>
         </div>
