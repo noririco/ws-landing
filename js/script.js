@@ -1,5 +1,7 @@
 $(document).ready(function(){
     //Collect fields.
+    $(':input[type="submit"]').prop('disabled', true);
+
     var trigger = 'form_submit';
     var is_valid = false;
     var name = phone = email = licence = city = '';
@@ -148,6 +150,9 @@ $(document).ready(function(){
         }
     });
 
+    if(is_valid) {
+        $(':input[type="submit"]').prop('disabled', false);
+    }
     //On SUBMIT
     $('#contact').submit(function(e){
         e.preventDefault();
@@ -180,9 +185,8 @@ $(document).ready(function(){
                         //Ajax Off animation;
                         //Change text/
                         $('.sk-circle').css('display', 'none');   
-                        $('.form-title span').text('נשלח בהצלחה!');                                         
-                        // $('#submitBtn').val('נשלח בהצלחה!');
-                        // $('#submitBtn').css('background', 'green');
+                        $('.form-title span').text('נשלח בהצלחה!');
+                        $('.formWrapper .form-control span').show();
                         $('.succesIcon').show();
                         $('.succesIcon polyline').show().css('-webkit-animation-play-state', 'running').delay(1000);
                     }

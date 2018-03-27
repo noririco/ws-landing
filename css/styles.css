@@ -670,6 +670,12 @@ body{
         font-size: 2.7vw;        
     }
 
+    #contact-us .form-control span {
+        font-size: 1.5vw;
+        display: none;
+    }
+
+
     #contact-us .error{
         color: red;
         font-size:1.1vw;

@@ -114,6 +114,7 @@ include 'title_time_shower.php';
                     </div>
                     <div class="form-control">
                         <input type="submit" value="שלח" id="submitBtn" name="submit">
+                        <span class="text-color-black">נציגנו יחזרו אליכם בהקדם!</span>
                         <div class="sk-circle">
                             <div class="sk-circle1 sk-child"></div>
                             <div class="sk-circle2 sk-child"></div>
