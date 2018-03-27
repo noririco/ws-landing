@@ -1,10 +1,8 @@
+var trigger = 'form_submit';
+var is_valid = false;
+var name = phone = email = licence = city = '';
+var is_name = is_phone = is_email = is_licence = is_city = false;
 $(document).ready(function(){
-    //Collect fields.
-    $(':input[type="submit"]').prop('disabled', true);
-
-    var trigger = 'form_submit';
-    var is_valid = false;
-    var name = phone = email = licence = city = '';
 
     $('#name').on('input focus', function() {
         if( $('#name').val() )  {
@@ -14,7 +12,7 @@ $(document).ready(function(){
                 // addRemoveClass($(this), 1);
                 $(this).addClass('error');
                 $(this).removeClass('success');
-                is_valid = false;
+                is_name = false;
                 // console.log("++++++++++++++++++");
                 // console.log($(this)[0].classList.contains('error'));
                 // console.log("++++++++++++++++++");
@@ -28,14 +26,14 @@ $(document).ready(function(){
                 // console.log($(this)[0].classList.contains('error'));
                 $(this).addClass('success');
                 $(this).removeClass('error');
-                is_valid = true;
+                is_name = true;
                 // addRemoveClass($(this), 0);
                 //console.log(name);
             }
         }
         else {
             // addRemoveClass($(this), 1);
-            is_valid = false;
+            is_name = false;
             $(this).addClass('error');
             $(this).removeClass('success');
             console.log("ERROR EMPTY");
@@ -48,21 +46,21 @@ $(document).ready(function(){
             // console.log(name);
             if(!/^\d{9,10}$/.test(phone)) {
                 //error
-                is_valid = false;
+                is_phone = false;
                 $(this).addClass('error');
                 $(this).removeClass('success');
                 console.log("Only 9-10 Numbers allowed");
             }
             else{
                 //ok
-                is_valid = true;
+                is_phone = true;
                 $(this).addClass('success');
                 $(this).removeClass('error');
                 console.log(phone);
             }
         }
         else {
-            is_valid = false;
+            is_phone = false;
             $(this).addClass('error');
             $(this).removeClass('success');            
             console.log("ERROR EMPTY");
@@ -75,21 +73,21 @@ $(document).ready(function(){
             // console.log(name);
             if(!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email)) {
                 //error
-                is_valid = false;
+                is_email = false;
                 $(this).addClass('error');
                 $(this).removeClass('success'); 
                 console.log("Email is not valid");
             }
             else{
                 //ok
-                is_valid = true;
+                is_email = true;
                 $(this).addClass('success');
                 $(this).removeClass('error');
                 console.log(email);
             }
         }
         else {
-            is_valid = false;
+            is_email = false;
             $(this).addClass('error');
             $(this).removeClass('success'); 
             console.log("ERROR EMPTY");
@@ -102,21 +100,21 @@ $(document).ready(function(){
             // console.log(name);
             if(!/^\d{6,7}$/.test(licence)) {
                 //error
-                is_valid = false;
+                is_licence = false;
                 $(this).addClass('error');
                 $(this).removeClass('success'); 
                 console.log("6-7 Numbers are allowed.");
             }
             else{
                 //ok
-                is_valid = true;
+                is_licence = true;
                 $(this).addClass('success');
                 $(this).removeClass('error');
                 console.log(licence);
             }
         }
         else {
-            is_valid = false;
+            is_licence = false;
             $(this).addClass('error');
             $(this).removeClass('success'); 
             console.log("ERROR EMPTY");
@@ -129,34 +127,53 @@ $(document).ready(function(){
             // console.log(name);
             if(!/^[\u0590-\u05FF ]*$/.test(city)) {
                 //error
-                is_valid = false;
+                is_city = false;
                 $(this).addClass('error');
                 $(this).removeClass('success'); 
                 console.log("Only letters allowed.");
             }
             else{
                 //ok
-                is_valid = true;
+                is_city = true;
                 $(this).addClass('success');
                 $(this).removeClass('error');
                 console.log(city);
             }
         }
         else {
-            is_valid = false;
+            is_city = false;
             $(this).addClass('error');
             $(this).removeClass('success'); 
             console.log("ERROR EMPTY");
         }
     });
 
-    if(is_valid) {
-        $(':input[type="submit"]').prop('disabled', false);
-    }
+    $('#contact-us').on('change', function() {
+
+        if(is_name && is_phone && is_email && is_licence && is_city) {
+            is_valid = true;
+            console.log(is_valid);        
+        }
+        else {
+            is_valid = false;
+            console.log(is_valid);
+        }
+        
+        if(is_valid) {
+            console.log("HEREEEEEEEEEEEEEEEEEEE");
+            $(':input[type="submit"]').prop('disabled', false);
+        }
+        else {
+            $(':input[type="submit"]').prop('disabled', true);
+        }
+    });
+    
+
+
     //On SUBMIT
     $('#contact').submit(function(e){
         e.preventDefault();
-
+        // console.log(is_valid);
         if(is_valid){
             //form valid
             console.log("form is valid");
@@ -250,26 +267,3 @@ $(document).ready(function(){
     initializeClock('titleclockdiv', schedule);
 
 });
-
-function addRemoveClass(element, addRemove = 0) {
-    console.log(element);
-    if(element[0].classList.contains('error')) {
-        element.removeClass('error');
-        element.addClass('success');
-    }
-    else if(element[0].classList.contains('success')){
-        element.removeClass('success');
-        element.addClass('error');
-    }
-    else {
-        //1
-        if(addRemove) {
-            element.addClass('error');
-        }
-        //0
-        else{
-            element.addClass('success');
-        }
-    }
-}
-

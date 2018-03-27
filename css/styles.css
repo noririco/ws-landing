@@ -345,6 +345,11 @@ body{
     margin: 33px 25px 35px 25px;
 }
 
+#contact-us .form-control span {
+    font-size: 1.5vw;
+    display: none;
+}
+
 #contact-us .error{
     color: red;
     font-weight: 400;
