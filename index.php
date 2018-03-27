@@ -1,4 +1,12 @@
-<?php include('form_contact_us_proccess.php'); ?>
+<?php 
+include 'form_contact_us_proccess.php'; 
+
+$date_a = new DateTime();
+$date_b = new DateTime('2018-04-07 21:00:00');
+
+$interval = date_diff($date_a,$date_b);
+
+?>
 
 <!DOCTYPE html>
 <html lang="en" dir="rtl">
@@ -6,12 +14,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>We Share</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>We Share - <?= $interval->format('%d:%H:%i:%s'); ?> </title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Assistant">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 <body>
+<div class="base-wrapper">
     <div id="wrapper">
+        <div id="header-logo" class="grid-item">
+            <img src="images/net1.png">
+        </div>
+        <div id="ws-logo" class="grid-item">
+            <img src="images/ws-logo.png">
+        </div>
         <div id="content-top" class="grid-item">
             <ul class="list">
                 <li class="list-item">
@@ -41,10 +56,10 @@
             </ul>
         </div>
         <div id="logo-top-right" class="grid-item">
-            <img src="http://via.placeholder.com/353x287">
+            <img src="images/screen.png">
         </div>
         <div id="logo-top-left" class="grid-item">
-            <img src="http://via.placeholder.com/100x110">
+            <img src="images/gift.png">
             <div class="logo-subtitle">
                 <span class="text-color-black">הפתעה מדהימה בשווי מאות שקלים</span>
             </div>
@@ -54,11 +69,10 @@
         </div>
         <div id="bold-line" class="grid-item">
             <div class="textWrapper background-primary border-primary">
-                <span class="text-color-black">
-                    זה הדבר הכי טוב שיקרה למשרד שלכם!
-                </span>
+                <span class="text-color-black">זה הדבר הכי טוב שיקרה למשרד שלכם!</span>
             </div>
         </div>
+
         <div id="tech-line" class="grid-item">
             <div class="textWrapper border-primary">
                 <div class="tech-line-top">
@@ -79,26 +93,27 @@
                 </div>
             </div>
         </div>
+
         <div id="contact-us" class="grid-item">
             <div class="formWrapper background-primary border-primary">
                 <div class="form-title">
                     <span class="text-color-black">הרשם עכשיו!</span>
                 </div>
-                <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post" id="contact">
+                <form action="" method="post" id="contact">
                     <div class="form-control">
-                        <input type="text" name="name" id="" value="<?= $name ?>" placeholder="שם מלא">
+                        <input type="text" name="name" id="name" value="" placeholder="שם מלא">
                     </div>
                     <div class="form-control">
-                        <input type="text" name="phone" id="" value="<?= $phone ?>" placeholder="טלפון">
+                        <input type="phone" name="phone" id="phone" value="" placeholder="טלפון">
                     </div>
                     <div class="form-control">
-                        <input type="text" name="email" id="" value="<?= $email ?>" placeholder="כתובת מייל">
+                        <input type="email" name="email" id="email" value="" placeholder="כתובת מייל">
                     </div>                    
                     <div class="form-control">
-                        <input type="text" name="licence" id="" value="<?= $licence ?>" placeholder="מספר רישיון">
+                        <input type="number" name="licence" id="licence" value="" placeholder="מספר רישיון">
                     </div>
                     <div class="form-control">
-                        <input type="text" name="city" id="" value="<?= $city ?>" placeholder="עיר מגורים">
+                        <input type="text" name="city" id="city" value="" placeholder="עיר מגורים">
                     </div>
                     <div class="form-control">
                         <input type="submit" value="שלח" id="submitBtn" name="submit">
@@ -106,6 +121,41 @@
                 </form>
             </div>
         </div>
+
+        <div class="clock-wrapper grid-item">
+        	<div id="clockdiv">
+			  <div>
+			    <span class="days"></span>
+			    <div class="smalltext">ימים</div>
+			  </div>
+			  <div>
+			    <span class="hours"></span>
+			    <div class="smalltext">שעות</div>
+			  </div>
+			  <div>
+			    <span class="minutes"></span>
+			    <div class="smalltext">דקות</div>
+			  </div>
+			  <div>
+			    <span class="seconds"></span>
+			    <div class="smalltext">שניות</div>
+			  </div>
+			</div>
+        </div>
+
+        <div id="footer-logo" class="grid-item">
+            <img src="images/net2.png">
+        </div>        
     </div>
+</div>
+
+
+
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
+    
 </body>
 </html>

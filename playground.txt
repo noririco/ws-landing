@@ -1,0 +1,52 @@
+
+TRY TO FLIPCARD
+<?php if($has_name_error) $classFlipcard = "flipcard flipped"; else $classFlipcard = "flipcard";?>
+                <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post" id="contact">
+                    <div class="<?= $classFlipcard ?>">
+                        <div class="form-control face front">
+                            <input type="text" name="name" id="name" value="<?= $name ?>" placeholder="שם מלא">
+                        </div>
+                        <div id="nameError" class="errorBlock face back">
+                            <?= $name_error?>
+                        </div>
+                    </div>
+
+
+
+//css 
+
+.flipcard {
+    transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    transition: 0.5s;
+    -moz-transition: 0.5s;
+    -webkit-transition: 0.5s;
+}
+.flipcard.flipped {
+    transform: rotatey(-180deg);
+    -moz-transform: rotatey(-180deg);
+    -webkit-transform: rotatey(-180deg);
+}
+.flipcard .face {
+    backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+.flipcard .front {
+    /* background: #220000;
+    color: white; */
+    display: block;
+}
+.flipcard .flipped .front {
+    display:none;
+}
+.flipcard .back {
+    transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+    display:none;
+}
+.flipcard.flipped .back {
+    display:block;
+}
