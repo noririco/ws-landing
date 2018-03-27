@@ -1,0 +1,84 @@
+
+
+@media only screen and (min-width: 480px) { 
+    /* SLIDE RIGHT TO LEFT */
+    .slider-rtl {
+        transform: translateX(120%);
+        -webkit-transform: translateX(120%);
+    }
+    .slide-in-rtl {
+        animation: slide-in-rtl 2s forwards;
+        -webkit-animation: slide-in-rtl 2s forwards;
+    }
+
+    @keyframes slide-in-rtl {
+        0% { transform: translateX(120%); }
+        100% { transform: translateX(0%); }
+    }
+
+    @-webkit-keyframes slide-in-rtl {
+        0% { -webkit-transform: translateX(120%); }    
+        100% { -webkit-transform: translateX(0%); }
+    }
+
+
+    /* SLIDE LEFT TO RIGHT */
+    .slider-ltr {
+        transform: translateX(-120%);
+        -webkit-transform: translateX(-120%);
+    }
+    .slide-in-ltr {
+        animation: slide-in-ltr 2s forwards;
+        -webkit-animation: slide-in-ltr 2s forwards;
+    }
+
+    @keyframes slide-in-ltr {
+        0% { transform: translateX(-120%); }
+        100% { transform: translateX(0%); }
+    }
+
+    @-webkit-keyframes slide-in-ltr {
+        0% { -webkit-transform: translateX(-120%); }    
+        100% { -webkit-transform: translateX(0%); }
+    }
+
+    /* SLIDE TOP TO BOT */
+    .slider-ttb {
+        transform: translateY(-120%);
+        -webkit-transform: translateY(-120%);
+    }
+    .slide-in-ttb {
+        animation: slide-in-ttb 2s forwards;
+        -webkit-animation: slide-in-ttb 2s forwards;
+    }
+
+    @keyframes slide-in-ttb {
+        0% { transform: translateY(-120%); }
+        100% { transform: translateY(0%); }
+    }
+
+    @-webkit-keyframes slide-in-ttb {
+        0% { -webkit-transform: translateY(-120%); }    
+        100% { -webkit-transform: translateY(0%); }
+    }
+
+    /* SLIDE BOT TO TOP */
+    .slider-btt {
+        transform: translateY(120%);
+        -webkit-transform: translateY(120%);
+    }
+    .slide-in-btt {
+        animation: slide-in-btt 2s forwards;
+        -webkit-animation: slide-in-btt 2s forwards;
+    }
+
+    @keyframes slide-in-btt {
+        0% { transform: translateY(120%); }
+        100% { transform: translateY(0%); }
+    }
+
+    @-webkit-keyframes slide-in-btt {
+        0% { -webkit-transform: translateY(120%); }    
+        100% { -webkit-transform: translateY(0%); }
+    }
+}

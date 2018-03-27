@@ -4,6 +4,28 @@ var name = phone = email = licence = city = '';
 var is_name = is_phone = is_email = is_licence = is_city = false;
 $(document).ready(function(){
 
+    //get innerWidth
+    var w = window.innerWidth;
+    //CASE MOBILE
+    if(w < 480) {
+        console.log(w);
+        
+    }
+    else{
+        console.log(w);
+        
+        $('#content-top .list').addClass('slider-ttb slide-in-ttb');
+        $('#logo-top-right .animWrapper').addClass('slider-rtl slide-in-rtl');
+        $('#logo-top-left .animWrapper').addClass('slider-ltr slide-in-ltr');
+        $('#bold-line .textWrapper').addClass('fade-in-ani');
+        $('#tech-line .textWrapper').addClass('fade-in-ani');
+        $('#interested-line .textWrapper').addClass('fade-in-ani');
+        $('#interested-line .inter-start').addClass('slider-rtl slide-in-rtl');
+        $('#interested-line .inter-end').addClass('slider-btt slide-in-btt');
+        $('#contact-us .formWrapper').addClass('slider-btt slide-in-btt');
+    }
+
+
     $('#name').on('input focus', function() {
         if( $('#name').val() )  {
             name = $('#name').val();
@@ -158,7 +180,7 @@ $(document).ready(function(){
             is_valid = false;
             console.log(is_valid);
         }
-        
+
         if(is_valid) {
             console.log("HEREEEEEEEEEEEEEEEEEEE");
             $(':input[type="submit"]').prop('disabled', false);

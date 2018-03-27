@@ -14,6 +14,8 @@ include 'title_time_shower.php';
     <link rel="stylesheet" type="text/css" href="css/spinner-circle.css">
     <link rel="stylesheet" type="text/css" href="css/successIcon.css">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/slide-in-animation.css">
+    <link rel="stylesheet" type="text/css" href="css/fade-in-animation.css">
 </head>
 <body>
 <div class="base-wrapper">
@@ -53,25 +55,29 @@ include 'title_time_shower.php';
             </ul>
         </div>
         <div id="logo-top-right" class="grid-item">
-            <img src="images/screen.png">
+            <div class="animWrapper slider-rtl slide-in-rtl">
+                <img src="images/screen.png">
+            </div>
         </div>
         <div id="logo-top-left" class="grid-item">
-            <img src="images/gift.png">
-            <div class="logo-subtitle">
-                <span class="text-color-black">הפתעה מדהימה בשווי מאות שקלים</span>
-            </div>
-            <div class="logo-subtitle">
-                <span class="text-color-black">ממתינה לכם לאחר הצטרפות</span>
+            <div class="animWrapper slider-ltr slide-in-ltr">
+                <img src="images/gift.png">
+                <div class="logo-subtitle">
+                    <span class="text-color-black">הפתעה מדהימה בשווי מאות שקלים</span>
+                </div>
+                <div class="logo-subtitle">
+                    <span class="text-color-black">ממתינה לכם לאחר הצטרפות</span>
+                </div>
             </div>
         </div>
         <div id="bold-line" class="grid-item">
-            <div class="textWrapper background-primary border-primary">
+            <div class="textWrapper background-primary border-primary fade-in-ani">
                 <span class="text-color-black">זה הדבר הכי טוב שיקרה למשרד שלכם!</span>
             </div>
         </div>
 
         <div id="tech-line" class="grid-item">
-            <div class="textWrapper border-primary">
+            <div class="textWrapper border-primary fade-in-ani">
                 <div class="tech-line-top">
                     <span class="text-color-black">אנחנו ב- We Share פיתחנו טכנולוגיה אדירה ובלעדית</span>
                 </div>
@@ -81,18 +87,18 @@ include 'title_time_shower.php';
             </div>
         </div>
         <div id="interested-line" class="grid-item">
-            <div class="textWrapper">
-                <div class="inter-start background-primary border-primary">
+            <div class="textWrapper fade-in-ani">
+                <div class="inter-start background-primary border-primary slider-rtl slide-in-rtl">
                     <span class="text-color-black">מעניין?</span>
                 </div>
-                <div class="inter-end">
+                <div class="inter-end slider-btt slide-in-btt">
                     <span class="text-color-black">השאירו פרטים ונציגנו יחזור אליכם בהקדם...</span>
                 </div>
             </div>
         </div>
 
         <div id="contact-us" class="grid-item">
-            <div class="formWrapper background-primary border-primary">
+            <div class="formWrapper background-primary border-primary slider-btt slide-in-btt">
                 <div class="form-title">
                     <span class="text-color-black">הרשם עכשיו!</span>
                 </div>
@@ -158,7 +164,10 @@ include 'title_time_shower.php';
 			    <span class="seconds"></span>
 			    <div class="smalltext">שניות</div>
 			  </div>
-			</div>
+            </div>
+            <div class="textWrapper">
+                <span class="text-color-black">נותרו לקבלת אתר במתנה ללא עלות</span>
+            </div>
         </div>
 
         <div id="footer-logo" class="grid-item">
