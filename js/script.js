@@ -2,6 +2,7 @@ var trigger = 'form_submit';
 var is_valid = false;
 var name = phone = email = licence = city = '';
 var is_name = is_phone = is_email = is_licence = is_city = false;
+
 $(document).ready(function(){
 
     //get innerWidth
@@ -9,11 +10,143 @@ $(document).ready(function(){
     //CASE MOBILE
     if(w < 480) {
         console.log(w);
+        //first animations when load.
+        $('#ws-logo').addClass('slider-rtl slide-in-rtl');
+        $('#content-top .list').addClass('slider-rtl slide-in-rtl');
+        $('#logo-top-right .animWrapper').addClass('slider-ltr slide-in-ltr');
+        $('#bold-line .textWrapper').addClass('slider-ttb slide-in-ttb');
+
+
+        //onScrolling animations
+        var lastScrollTop = 0;
+        $(window).scroll(function () {
+            var st = $(this).scrollTop();
+            if (st > lastScrollTop){
+                // downscroll code
+                $('.grid-item').each(function () {
+                    var gridId = $(this)[0].id;
+                    var gridItemPos = $(this).offset().top;
+                    var gridItemHeight = $(this).height();
+                    var topOfWindow = $(window).scrollTop();
+            
+                    if (gridItemPos < topOfWindow + gridItemHeight && gridItemPos + gridItemHeight > topOfWindow) {
+                        switch(gridId) {
+                            case "tech-line":
+                                $('#tech-line .textWrapper').addClass('slider-ttb slide-in-ttb');
+                                break;
+                            case "interested-line":
+                                $('#interested-line .textWrapper').addClass('fade-in-ani');
+                                $('#interested-line .inter-start').addClass('slider-rtl slide-in-rtl');
+                                $('#interested-line .inter-end').addClass('slider-btt slide-in-btt');
+                                break;
+                            case "contact-us":
+                                $('#contact-us form').addClass('fade-in-ani');
+                                $('#contact-us .form-control').addClass('slider-btt slide-in-btt');
+                                break;
+                            default:
+                        }
+                    } else {
+                        switch(gridId) {
+                            case "tech-line":
+                                $('#tech-line .textWrapper').removeClass('slider-ttb slide-in-ttb');
+                                break;
+                            case "interested-line":
+                                $('#interested-line .textWrapper').removeClass('fade-in-ani');
+                                $('#interested-line .inter-start').removeClass('slider-rtl slide-in-rtl');
+                                $('#interested-line .inter-end').removeClass('slider-btt slide-in-btt');
+                                break;
+                            case "contact-us":
+                                $('#contact-us form').removeClass('fade-in-ani');
+                                $('#contact-us .form-control').removeClass('slider-btt slide-in-btt');
+                                break;
+                            default:
+                        }
+                    }
+                });
+            } // end scrolldown
+            // scrollup code
+            else {
+               
+               $('.grid-item').each(function () {
+                // console.log($(this));
+                // console.log($(this).offset().top);
+                // console.log($(this).height());
+                // console.log($(window).scrollTop());
+                // console.log("ClientH - ST = ",$('body')[0].clientHeight - $(window).scrollTop());
+                var gridId = $(this)[0].id;
+                var gridItemPos = $(this).offset().top;
+                var gridItemHeight = $(this).height();
+                var topOfWindow = $(window).scrollTop();
+        
+                if (gridItemPos < topOfWindow + gridItemHeight && gridItemPos + gridItemHeight > topOfWindow) {
+                    switch(gridId) {
+                        case "ws-logo":
+                            $('#ws-logo').addClass('slider-rtl slide-in-rtl');
+                            break;
+                        case "content-top":
+                            $('#content-top .list').addClass('slider-rtl slide-in-rtl');
+                            break;
+                        case "logo-top-right":
+                            $('#logo-top-right .animWrapper').addClass('slider-ltr slide-in-ltr');
+                            break;
+                        case "bold-line":
+                            $('#bold-line .textWrapper').addClass('slider-ttb slide-in-ttb');
+                            break;
+                        case "tech-line":
+                            $('#tech-line .textWrapper').addClass('slider-ttb slide-in-ttb');
+                            break;
+                        case "interested-line":
+                            $('#interested-line .textWrapper').addClass('fade-in-ani');
+                            $('#interested-line .inter-start').addClass('slider-rtl slide-in-rtl');
+                            $('#interested-line .inter-end').addClass('slider-btt slide-in-btt');
+                            break;
+                        // case "contact-us":
+                        //     $('#contact-us form').addClass('fade-in-ani');
+                        //     $('#contact-us .form-control').addClass('slider-btt slide-in-btt');
+                        //     break;
+                        default:
+
+                    }
+                } else {
+                    switch(gridId) {
+                        case "ws-logo":
+                            $('#ws-logo').removeClass('slider-rtl slide-in-rtl');
+                            break;
+                        case "content-top":
+                            $('#content-top .list').removeClass('slider-rtl slide-in-rtl');
+                            break;
+                        case "logo-top-right":
+                            $('#logo-top-right .animWrapper').removeClass('slider-ltr slide-in-ltr');
+                            break;
+                        case "bold-line":
+                            $('#bold-line .textWrapper').removeClass('slider-ttb slide-in-ttb');
+                            break;
+                        case "tech-line":
+                            $('#tech-line .textWrapper').removeClass('slider-ttb slide-in-ttb');
+                            break;
+                        case "interested-line":
+                            $('#interested-line .textWrapper').removeClass('fade-in-ani');
+                            $('#interested-line .inter-start').removeClass('slider-rtl slide-in-rtl');
+                            $('#interested-line .inter-end').removeClass('slider-btt slide-in-btt');
+                            break;
+                        case "contact-us":
+                            $('#contact-us form').removeClass('fade-in-ani');
+                            $('#contact-us .form-control').removeClass('slider-btt slide-in-btt');
+                            break;
+                        default:
+                    }
+                   
+                }
+                });
+            } // end scrollup
+
+            lastScrollTop = st;
+        });
         
     }
     else{
         console.log(w);
-        
+        //DESKTOP
         $('#content-top .list').addClass('slider-ttb slide-in-ttb');
         $('#logo-top-right .animWrapper').addClass('slider-rtl slide-in-rtl');
         $('#logo-top-left .animWrapper').addClass('slider-ltr slide-in-ltr');
