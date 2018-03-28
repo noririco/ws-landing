@@ -10,11 +10,10 @@ $(document).ready(function(){
     //CASE MOBILE
     if(w < 480) {
         console.log(w);
-        //first animations when load.
+        //first animations when load. the one which we see instantly.
         $('#ws-logo').addClass('slider-rtl slide-in-rtl');
         $('#content-top .list').addClass('slider-rtl slide-in-rtl');
         $('#logo-top-right .animWrapper').addClass('slider-ltr slide-in-ltr');
-        $('#bold-line .textWrapper').addClass('slider-ttb slide-in-ttb');
 
 
         //onScrolling animations
@@ -28,9 +27,15 @@ $(document).ready(function(){
                     var gridItemPos = $(this).offset().top;
                     var gridItemHeight = $(this).height();
                     var topOfWindow = $(window).scrollTop();
+                    var innerHeight = $(window).innerHeight();
             
-                    if (gridItemPos < topOfWindow + gridItemHeight && gridItemPos + gridItemHeight > topOfWindow) {
+                    if ( (gridItemPos - innerHeight < topOfWindow + gridItemHeight) 
+                            && (gridItemPos + gridItemHeight > topOfWindow) ) {
+
                         switch(gridId) {
+                            case "bold-line":
+                                $('#bold-line .textWrapper').addClass('slider-ttb slide-in-ttb');                                
+                                break;
                             case "tech-line":
                                 $('#tech-line .textWrapper').addClass('slider-ttb slide-in-ttb');
                                 break;
@@ -47,6 +52,9 @@ $(document).ready(function(){
                         }
                     } else {
                         switch(gridId) {
+                            case "bold-line":
+                                $('#bold-line .textWrapper').removeClass('slider-ttb slide-in-ttb');                                
+                                break;
                             case "tech-line":
                                 $('#tech-line .textWrapper').removeClass('slider-ttb slide-in-ttb');
                                 break;
@@ -162,32 +170,20 @@ $(document).ready(function(){
     $('#name').on('input focus', function() {
         if( $('#name').val() )  {
             name = $('#name').val();
-            // console.log(name);
             if(!/^[\u0590-\u05FF ]*$/.test(name)) {
-                // addRemoveClass($(this), 1);
                 $(this).addClass('error');
                 $(this).removeClass('success');
                 is_name = false;
-                // console.log("++++++++++++++++++");
-                // console.log($(this)[0].classList.contains('error'));
-                // console.log("++++++++++++++++++");
-
-                //addRemoveClass($(this), 1);
                 console.log("Only letters allowed");
             }
             else{
                 //ok
-
-                // console.log($(this)[0].classList.contains('error'));
                 $(this).addClass('success');
                 $(this).removeClass('error');
                 is_name = true;
-                // addRemoveClass($(this), 0);
-                //console.log(name);
             }
         }
         else {
-            // addRemoveClass($(this), 1);
             is_name = false;
             $(this).addClass('error');
             $(this).removeClass('success');
@@ -198,7 +194,6 @@ $(document).ready(function(){
     $('#phone').on('input focus', function() {
         if( $('#phone').val() )  {
             phone = $('#phone').val();
-            // console.log(name);
             if(!/^\d{9,10}$/.test(phone)) {
                 //error
                 is_phone = false;
@@ -225,7 +220,6 @@ $(document).ready(function(){
     $('#email').on('input focus', function() {
         if( $('#email').val() )  {
             email = $('#email').val();
-            // console.log(name);
             if(!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email)) {
                 //error
                 is_email = false;
@@ -252,7 +246,6 @@ $(document).ready(function(){
     $('#licence').on('input focus', function() {
         if( $('#licence').val() )  {
             licence = $('#licence').val();
-            // console.log(name);
             if(!/^\d{6,7}$/.test(licence)) {
                 //error
                 is_licence = false;
